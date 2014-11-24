@@ -13,7 +13,7 @@ If intResponse = vbYes Then
   objNet.AddWindowsPrinterConnection uncpath
 
     REM Check for installed printer and output confirmation message.
-    MsgBox printerExists("\\rno-g-wds01\RNO-G-Frenzy-100")
+    printerExists("\\rno-g-wds01\RNO-G-Frenzy-100")
 
     Function printerExists(str)
         printerExists = False
@@ -30,6 +30,14 @@ If intResponse = vbYes Then
                 Exit For
             End If
         Next
+
+        REM Show confirmation message.
+        If printerExists = false Then
+            MsgBox "Oops, the printer did not install. Please contact the Desktop support."
+        else
+            MsgBox "Success! You can close this window."
+        End If
+
     End Function
 
 REM If user selects "No"
