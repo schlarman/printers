@@ -1,18 +1,18 @@
-REM Add "Frenzy" Printer - Torin Emard - CustomInk 2014
-REM http://thydzik.com/vbavbs-check-if-printer-is-installed/
+' Add "Frenzy" Printer - Desktop Support Reno - CustomInk 2014
+' http://thydzik.com/vbavbs-check-if-printer-is-installed/
 
-REM Popup message confirming installation.
+' Popup message confirming installation.
 intResponse = Msgbox("Would you like to add the Frenzy printer?", vbYesNo, "Confirm Add Printer")
 
-REM Set path for network printer "Frenzy".
+' Set path for network printer "Frenzy".
 uncpath = "\\rno-g-wds01\RNO-G-Frenzy-100"
 
-REM If "Yes" add printer.
+' If "Yes" add printer.
 If intResponse = vbYes Then
   Set objNet = CreateObject("WScript.Network")
   objNet.AddWindowsPrinterConnection uncpath
 
-    REM Check for installed printer and output confirmation message.
+    ' Check for installed printer and output confirmation message.
     printerExists("\\rno-g-wds01\RNO-G-Frenzy-100")
 
     Function printerExists(str)
@@ -31,16 +31,16 @@ If intResponse = vbYes Then
             End If
         Next
 
-        REM Show confirmation message.
+        ' Show confirmation message.
         If printerExists = false Then
-            MsgBox "Oops, the printer did not install. Please contact the Desktop support."
+            MsgBox "Oops, the printer did not install. Please contact the Desktop Support."
         else
             MsgBox "Success! You can close this window."
         End If
 
     End Function
 
-REM If user selects "No"
+' If user selects "No"
 Else
     Msgbox "No changes were made."
 End If
